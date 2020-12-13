@@ -1,0 +1,80 @@
+\hypertarget{classbodygen}{}\doxysection{bodygen Class Reference}
+\label{classbodygen}\index{bodygen@{bodygen}}
+
+
+The main class that runs the simulation or builds the bodies. Most paramters are straightforward.  
+
+
+
+
+{\ttfamily \#include $<$bodygen.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}{bodygen}} (string, long double, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}{bodygen\+::bodygen}} object. This constructor is called if there is an input file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbodygen_af3a3c0eb8e90c058a4cbb62eeb7fd84a}{bodygen}} (size\+\_\+t, string, long double, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}{bodygen\+::bodygen}} object. This constructor is called if there is no input file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classbodygen_a51c8130e86eced38fa8f63a0fb935ae6}\label{classbodygen_a51c8130e86eced38fa8f63a0fb935ae6}} 
+void \mbox{\hyperlink{classbodygen_a51c8130e86eced38fa8f63a0fb935ae6}{simulate}} ()
+\begin{DoxyCompactList}\small\item\em The main function that does the Nbody simulation. Either a file is read, or data is generated. Updating functions are run to update the bodies before the tree is deleted and remade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main class that runs the simulation or builds the bodies. Most paramters are straightforward. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bodyvector} & This vector stores the information of all bodies in the simulation. When each leaf is updated, the corresponding index in this bodyvector is also updated \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}\label{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}} 
+\index{bodygen@{bodygen}!bodygen@{bodygen}}
+\index{bodygen@{bodygen}!bodygen@{bodygen}}
+\doxysubsubsection{\texorpdfstring{bodygen()}{bodygen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bodygen\+::bodygen (\begin{DoxyParamCaption}\item[{string}]{inputstring,  }\item[{long double}]{tstepinput,  }\item[{size\+\_\+t}]{iter }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}{bodygen\+::bodygen}} object. This constructor is called if there is an input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputstring} & Initializes filename to inputstring. This is the desired filename to read \\
+\hline
+{\em tstepinput} & Initializes timestep to tstepinput. This is the desired timestep \\
+\hline
+{\em iter} & Initializes iter to iterations. This is the total number of iterations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbodygen_af3a3c0eb8e90c058a4cbb62eeb7fd84a}\label{classbodygen_af3a3c0eb8e90c058a4cbb62eeb7fd84a}} 
+\index{bodygen@{bodygen}!bodygen@{bodygen}}
+\index{bodygen@{bodygen}!bodygen@{bodygen}}
+\doxysubsubsection{\texorpdfstring{bodygen()}{bodygen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bodygen\+::bodygen (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{inputcount,  }\item[{string}]{st,  }\item[{long double}]{tstepinput,  }\item[{size\+\_\+t}]{iter }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classbodygen_ae3cd49fdd05348c7c4451f65104677a5}{bodygen\+::bodygen}} object. This constructor is called if there is no input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputcount} & Initializes count to inputcount. This is the desired number of bodies \\
+\hline
+{\em st} & Initializes filename to st. This is the desired filename to write the generate initial data to \\
+\hline
+{\em tstepinput} & Initializes timestep to tstepinput. This is the desired timestep \\
+\hline
+{\em iter} & Initializes iter to iterations. This is the total number of iterations \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bodygen.\+hpp\item 
+\mbox{\hyperlink{bodygen_8cpp}{bodygen.\+cpp}}\end{DoxyCompactItemize}

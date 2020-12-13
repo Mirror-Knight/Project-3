@@ -1,0 +1,60 @@
+\hypertarget{struct_node}{}\doxysection{Node Struct Reference}
+\label{struct_node}\index{Node@{Node}}
+
+
+\mbox{\hyperlink{struct_node}{Node}} struct that stores various elements -\/ main important detail is that this \mbox{\hyperlink{struct_node}{Node}} points to eight other node pointers.  
+
+
+
+
+{\ttfamily \#include $<$bodygen.\+hpp$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_node_a0f214254fab7dfd956630e9b467c6d32}\label{struct_node_a0f214254fab7dfd956630e9b467c6d32}} 
+bool {\bfseries isleaf}
+\item 
+\mbox{\Hypertarget{struct_node_ab8ddd4bf14243e256eb9b2257905a0dd}\label{struct_node_ab8ddd4bf14243e256eb9b2257905a0dd}} 
+string {\bfseries nodepath}
+\item 
+\mbox{\Hypertarget{struct_node_ae3f6e3ba186468dbe3ddd8ff56df5419}\label{struct_node_ae3f6e3ba186468dbe3ddd8ff56df5419}} 
+array$<$ long double, 3 $>$ {\bfseries cog}
+\item 
+\mbox{\Hypertarget{struct_node_aee01b6386bf209adc13a74dfe0f39499}\label{struct_node_aee01b6386bf209adc13a74dfe0f39499}} 
+long double {\bfseries cogmass}
+\item 
+\mbox{\Hypertarget{struct_node_a83d10aa15bb05c8bd77177054ec57171}\label{struct_node_a83d10aa15bb05c8bd77177054ec57171}} 
+long double {\bfseries extent}
+\item 
+\mbox{\Hypertarget{struct_node_a8e86405c6bb1124c1da3e0a1a93b1129}\label{struct_node_a8e86405c6bb1124c1da3e0a1a93b1129}} 
+\mbox{\hyperlink{classbody}{body}} {\bfseries solebody}
+\item 
+\mbox{\Hypertarget{struct_node_ae29cb6d46c5720aeddbbc7a499233a0a}\label{struct_node_ae29cb6d46c5720aeddbbc7a499233a0a}} 
+array$<$ \mbox{\hyperlink{struct_node}{Node}} $\ast$, 8 $>$ {\bfseries Nodelist}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_node}{Node}} struct that stores various elements -\/ main important detail is that this \mbox{\hyperlink{struct_node}{Node}} points to eight other node pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em isleaf} & Is this node a leaf \\
+\hline
+{\em nodepath} & Same as regnodepath from region. The way my code works requires this to exist in both the region class and the node struct \\
+\hline
+{\em cog} & This is the center of gravity coordinates \\
+\hline
+{\em cogmass} & Center of mass of the node \\
+\hline
+{\em extent} & Approximate \char`\"{}size\char`\"{} or \char`\"{}spread\char`\"{} of bodies in a node \\
+\hline
+{\em solebody} & The body stored in a node if it is a leaf. Otherwise this stores garbage data that will not be referenced \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+bodygen.\+hpp\end{DoxyCompactItemize}

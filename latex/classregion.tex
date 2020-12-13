@@ -1,0 +1,49 @@
+\hypertarget{classregion}{}\doxysection{region Class Reference}
+\label{classregion}\index{region@{region}}
+
+
+Region class stores boundaries of a region, a vector of bodies in the region, a nodepath and a boolean that checks if collisions have been computed.  
+
+
+
+
+{\ttfamily \#include $<$bodygen.\+hpp$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classregion_a0ba78c8fdbffb2f864e7828367305425}\label{classregion_a0ba78c8fdbffb2f864e7828367305425}} 
+array$<$ long double, 2 $>$ {\bfseries xrange}
+\item 
+\mbox{\Hypertarget{classregion_a987bfde83275234d6778f4a52e34cbd8}\label{classregion_a987bfde83275234d6778f4a52e34cbd8}} 
+array$<$ long double, 2 $>$ {\bfseries yrange}
+\item 
+\mbox{\Hypertarget{classregion_a2df578be406c58ba03566cec441580f9}\label{classregion_a2df578be406c58ba03566cec441580f9}} 
+array$<$ long double, 2 $>$ {\bfseries zrange}
+\item 
+\mbox{\Hypertarget{classregion_a8ac672dc7d5a75d283e8b0e8b1520d5a}\label{classregion_a8ac672dc7d5a75d283e8b0e8b1520d5a}} 
+vector$<$ \mbox{\hyperlink{classbody}{body}} $>$ {\bfseries bodiesinregion}
+\item 
+\mbox{\Hypertarget{classregion_afb702b7f6ce967c23ce1fd944999c684}\label{classregion_afb702b7f6ce967c23ce1fd944999c684}} 
+string {\bfseries regnodepath}
+\item 
+\mbox{\Hypertarget{classregion_a4d5d8db09e7691aae5ed76a7396cd2b8}\label{classregion_a4d5d8db09e7691aae5ed76a7396cd2b8}} 
+bool {\bfseries checkcol}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Region class stores boundaries of a region, a vector of bodies in the region, a nodepath and a boolean that checks if collisions have been computed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em regnodepath} & This is a string that encodes the path one takes to reach some child node from the root node of the tree. \\
+\hline
+{\em checkcol} & This checks if collision has been computed. This is set to false initially, and set to true if collisions are checked, preventing needless extra computations at child nodes. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+bodygen.\+hpp\end{DoxyCompactItemize}

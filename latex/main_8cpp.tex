@@ -1,0 +1,60 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+An Nbody simulation that applies a version of Barnes-\/\+Hut Tree code and the Velocity-\/\+Verlet algorithm.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}bodygen.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em The main function. Runs the \mbox{\hyperlink{class_spacetree}{Spacetree}} and bodygen constructors and the simulate function based on inputs. Also checks for correct inputs and returns error messages if command line inputs are incorrect. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Nbody simulation that applies a version of Barnes-\/\+Hut Tree code and the Velocity-\/\+Verlet algorithm. 
+
+\begin{DoxyAuthor}{Author}
+Alex Lu (\href{mailto:luh60@mcmaster.ca}{\texttt{ luh60@mcmaster.\+ca}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020-\/12-\/12
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+The main function. Runs the \mbox{\hyperlink{class_spacetree}{Spacetree}} and bodygen constructors and the simulate function based on inputs. Also checks for correct inputs and returns error messages if command line inputs are incorrect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of inputs -\/ must be 3 or 4 (in addition to ./bodygen.exe) \\
+\hline
+{\em argv} & The inputs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

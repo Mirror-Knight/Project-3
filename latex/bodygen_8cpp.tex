@@ -1,0 +1,380 @@
+\hypertarget{bodygen_8cpp}{}\doxysection{bodygen.\+cpp File Reference}
+\label{bodygen_8cpp}\index{bodygen.cpp@{bodygen.cpp}}
+
+
+An Nbody simulation that applies a version of Barnes-\/\+Hut Tree code and the Velocity-\/\+Verlet algorithm.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$direct.\+h$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include \char`\"{}bodygen.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\array$<$ T, L $>$ \mbox{\hyperlink{bodygen_8cpp_aa700ac4f4504b9ef6b2be20157404bb5}{operator+}} (const array$<$ T, L $>$ \&v1, const array$<$ T, L $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Overloaded operator + that adds the elements of two arrays to produce a third array. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\array$<$ T, L $>$ \mbox{\hyperlink{bodygen_8cpp_ab4664c53b1bdf665e12a1f9325c3381e}{operator-\/}} (const array$<$ T, L $>$ \&v1, const array$<$ T, L $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Overloaded operator -\/ that subtracts the elements of two arrays to produce a third array. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\T \mbox{\hyperlink{bodygen_8cpp_a3fd38adf5f38fca96d57105d117d2e64}{operator$\ast$}} (const array$<$ T, L $>$ \&v1, const array$<$ T, L $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Overloaded operator $\ast$ that takes the dot product of two arrays. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\array$<$ T, L $>$ \mbox{\hyperlink{bodygen_8cpp_aba99172f3b61fca1d375d9a2bec66fde}{operator$\ast$}} (const T \&s, array$<$ T, L $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Overloaded operator $\ast$ that multiples an array by a scalar. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\bool \mbox{\hyperlink{bodygen_8cpp_ae33dda5b84622c52f433413d1df2e857}{operator$>$=}} (const array$<$ T, L $>$ \&v1, const array$<$ T, L $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Overloaded operator $>$= that compares two arrays and determines if each element in the first array is greater than or equal to the corresponding element in the second array. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\bool \mbox{\hyperlink{bodygen_8cpp_a2497ea624af4c1a7a0602478eb11abd8}{operator$<$}} (const array$<$ T, L $>$ \&v1, const array$<$ T, L $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em Overloaded operator $<$ that compares two arrays and determines if each element in the first array is less than the corresponding element in the second array. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{bodygen_8cpp_a6696334aac973f28b4d3c55a9d5c8a09}{operator==}} (const string \&a, const string \&b)
+\begin{DoxyCompactList}\small\item\em Overloaded operator == that compares two strings and determine if they are equal. \end{DoxyCompactList}\item 
+ostream \& \mbox{\hyperlink{bodygen_8cpp_a183b27b364176c0b306e93de23b9fc83}{operator$<$$<$}} (ostream \&out, \mbox{\hyperlink{classbody}{body}} \&b)
+\begin{DoxyCompactList}\small\item\em Overloaded operator $<$$<$ that writes out body data -\/ position, velocity, mass and radius. \end{DoxyCompactList}\item 
+ostream \& \mbox{\hyperlink{bodygen_8cpp_a274cbb4b5cf4c5a72f0f496d85545152}{operator$<$$<$}} (ostream \&out, vector$<$ \mbox{\hyperlink{classbody}{body}} $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Overloaded operator $<$$<$ that writes out data for a vector of bodies -\/ positions and radii. Used in a different context than above. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t L$>$ }\\T \mbox{\hyperlink{bodygen_8cpp_a224425cc0f4283720b96f4ea2598c4b8}{moodulus}} (const array$<$ T, L $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Calculates the modulus of a vector (in this case array) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{bodygen_8cpp_a1ab31b90bc584c635ec159468ceed9b2}{sgn}} (T val)
+\begin{DoxyCompactList}\small\item\em returns the sign of some value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\array$<$ T, 3 $>$ \mbox{\hyperlink{bodygen_8cpp_a0b5b672c27cbd369970a2f9146110700}{crossprod}} (array$<$ T, 3 $>$ \&v1, array$<$ T, 3 $>$ \&v2)
+\begin{DoxyCompactList}\small\item\em returns cross product of two arrays of length 3 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bodygen_8cpp_a1a05955530283dfbf9c8c0aead14c507}\label{bodygen_8cpp_a1a05955530283dfbf9c8c0aead14c507}} 
+long double \mbox{\hyperlink{bodygen_8cpp_a1a05955530283dfbf9c8c0aead14c507}{G}} = 6.\+67E-\/11
+\begin{DoxyCompactList}\small\item\em Global variable declared here. Unconventional, but in the context of a physical simulation unchanging physical constants should be constant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Nbody simulation that applies a version of Barnes-\/\+Hut Tree code and the Velocity-\/\+Verlet algorithm. 
+
+\begin{DoxyAuthor}{Author}
+Alex Lu (\href{mailto:luh60@mcmaster.ca}{\texttt{ luh60@mcmaster.\+ca}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020-\/12-\/12
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{bodygen_8cpp_a0b5b672c27cbd369970a2f9146110700}\label{bodygen_8cpp_a0b5b672c27cbd369970a2f9146110700}} 
+\index{bodygen.cpp@{bodygen.cpp}!crossprod@{crossprod}}
+\index{crossprod@{crossprod}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{crossprod()}{crossprod()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+array$<$T,3$>$ crossprod (\begin{DoxyParamCaption}\item[{array$<$ T, 3 $>$ \&}]{v1,  }\item[{array$<$ T, 3 $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+returns cross product of two arrays of length 3 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & input array 1 \\
+\hline
+{\em v2} & input arrat 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$<$\+T,3$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a224425cc0f4283720b96f4ea2598c4b8}\label{bodygen_8cpp_a224425cc0f4283720b96f4ea2598c4b8}} 
+\index{bodygen.cpp@{bodygen.cpp}!moodulus@{moodulus}}
+\index{moodulus@{moodulus}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{moodulus()}{moodulus()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+T moodulus (\begin{DoxyParamCaption}\item[{const array$<$ T, L $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Calculates the modulus of a vector (in this case array) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type \\
+\hline
+{\em L} & size\+\_\+t \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T resulting modulus 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a3fd38adf5f38fca96d57105d117d2e64}\label{bodygen_8cpp_a3fd38adf5f38fca96d57105d117d2e64}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+T operator$\ast$ (\begin{DoxyParamCaption}\item[{const array$<$ T, L $>$ \&}]{v1,  }\item[{const array$<$ T, L $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator $\ast$ that takes the dot product of two arrays. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em L} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Input array 1 \\
+\hline
+{\em v2} & Input array 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$<$\+T,\+L$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_aba99172f3b61fca1d375d9a2bec66fde}\label{bodygen_8cpp_aba99172f3b61fca1d375d9a2bec66fde}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+array$<$T,L$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const T \&}]{s,  }\item[{array$<$ T, L $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator $\ast$ that multiples an array by a scalar. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em L} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Input scalar (must be of same type as the elements in the array) \\
+\hline
+{\em v} & Input array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$<$\+T,\+L$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_aa700ac4f4504b9ef6b2be20157404bb5}\label{bodygen_8cpp_aa700ac4f4504b9ef6b2be20157404bb5}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+array$<$T,L$>$ operator+ (\begin{DoxyParamCaption}\item[{const array$<$ T, L $>$ \&}]{v1,  }\item[{const array$<$ T, L $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator + that adds the elements of two arrays to produce a third array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em L} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Input array 1 \\
+\hline
+{\em v2} & Input array 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$<$\+T,\+L$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_ab4664c53b1bdf665e12a1f9325c3381e}\label{bodygen_8cpp_ab4664c53b1bdf665e12a1f9325c3381e}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+array$<$T,L$>$ operator-\/ (\begin{DoxyParamCaption}\item[{const array$<$ T, L $>$ \&}]{v1,  }\item[{const array$<$ T, L $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator -\/ that subtracts the elements of two arrays to produce a third array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em L} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Input array 1 \\
+\hline
+{\em v2} & Input array 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$<$\+T,\+L$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a2497ea624af4c1a7a0602478eb11abd8}\label{bodygen_8cpp_a2497ea624af4c1a7a0602478eb11abd8}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+bool operator$<$ (\begin{DoxyParamCaption}\item[{const array$<$ T, L $>$ \&}]{v1,  }\item[{const array$<$ T, L $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator $<$ that compares two arrays and determines if each element in the first array is less than the corresponding element in the second array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em L} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Input array 1 \\
+\hline
+{\em v2} & Input array 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Returns true if all comparisons satisfy the condition 
+
+false Returns false if at least one comparison does not satisfy the condition 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a183b27b364176c0b306e93de23b9fc83}\label{bodygen_8cpp_a183b27b364176c0b306e93de23b9fc83}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{\mbox{\hyperlink{classbody}{body}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator $<$$<$ that writes out body data -\/ position, velocity, mass and radius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & ostream object \\
+\hline
+{\em b} & body \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ostream\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a274cbb4b5cf4c5a72f0f496d85545152}\label{bodygen_8cpp_a274cbb4b5cf4c5a72f0f496d85545152}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{vector$<$ \mbox{\hyperlink{classbody}{body}} $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator $<$$<$ that writes out data for a vector of bodies -\/ positions and radii. Used in a different context than above. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & ostream object \\
+\hline
+{\em v} & vector of bodies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ostream\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a6696334aac973f28b4d3c55a9d5c8a09}\label{bodygen_8cpp_a6696334aac973f28b4d3c55a9d5c8a09}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const string \&}]{a,  }\item[{const string \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator == that compares two strings and determine if they are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Input string 1 \\
+\hline
+{\em b} & Input string 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_ae33dda5b84622c52f433413d1df2e857}\label{bodygen_8cpp_ae33dda5b84622c52f433413d1df2e857}} 
+\index{bodygen.cpp@{bodygen.cpp}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t L$>$ \\
+bool operator$>$= (\begin{DoxyParamCaption}\item[{const array$<$ T, L $>$ \&}]{v1,  }\item[{const array$<$ T, L $>$ \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Overloaded operator $>$= that compares two arrays and determines if each element in the first array is greater than or equal to the corresponding element in the second array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+{\em L} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Input array 1 \\
+\hline
+{\em v2} & Input array 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Returns true if all comparisons satisfy the condition 
+
+false Returns false if at least one comparison does not satisfy the condition 
+\end{DoxyReturn}
+\mbox{\Hypertarget{bodygen_8cpp_a1ab31b90bc584c635ec159468ceed9b2}\label{bodygen_8cpp_a1ab31b90bc584c635ec159468ceed9b2}} 
+\index{bodygen.cpp@{bodygen.cpp}!sgn@{sgn}}
+\index{sgn@{sgn}!bodygen.cpp@{bodygen.cpp}}
+\doxysubsubsection{\texorpdfstring{sgn()}{sgn()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int sgn (\begin{DoxyParamCaption}\item[{T}]{val }\end{DoxyParamCaption})}
+
+
+
+returns the sign of some value 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em val} & input value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 or -\/1 
+\end{DoxyReturn}
