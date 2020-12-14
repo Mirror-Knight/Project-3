@@ -625,7 +625,6 @@ void bodygen::simulate()
         Spacetree space_tree{space};
         deletetree(datatree);
         datatree = space_tree.treegen();
-        std::cout << i << '\n';
         j = j + 1;
     }
 }
@@ -868,10 +867,8 @@ Node* bodygen::update(Node* tree)
     if(tree->isleaf)
     {
         array<long double,3> sumacc = tree->solebody.acceleration + tree->solebody.newacceleration; 
-        array<long double,3> tempvel = tree->solebody.velocity;
-        array<long double,3> tempacc = tree->solebody.acceleration;
 
-        tree->solebody.position = tree->solebody.position + timestep*tempvel + (0.5*timestep*timestep)*tempacc;
+        tree->solebody.position = tree->solebody.position + timestep*tree->solebody.velocity + (0.5*timestep*timestep)*tree->solebody.acceleration;
         tree->solebody.velocity = tree->solebody.velocity + (0.5*timestep)*sumacc;
         tree->solebody.acceleration = tree->solebody.newacceleration;
         tree->solebody.newacceleration = {0,0,0};

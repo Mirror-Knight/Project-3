@@ -30,6 +30,7 @@ using namespace std;
  */
 int main(int argc, char* argv[])
 {
+    chrono::time_point start_time{chrono::steady_clock::now()};
     if(argc > 5 or argc < 4)
     {
         std::cout << "Incorrect number of inputs\n";
@@ -60,6 +61,10 @@ int main(int argc, char* argv[])
                 size_t st = (size_t) atoi(argv[3]);
                 bodygen gen{str,ld,st};
                 gen.simulate();
+                chrono::time_point end_time{chrono::steady_clock::now()};
+                chrono::duration<double> elapsed_time_seconds{end_time - start_time};
+                chrono::duration<double, milli> elapsed_time_milli{end_time - start_time};
+                cout << "Elapsed time: " << elapsed_time_seconds.count() << " seconds, ";
                 return 0;
             }
         }
@@ -80,6 +85,10 @@ int main(int argc, char* argv[])
         size_t st = (size_t) atoi(argv[4]);
         bodygen gen{st1,str,ld,st};
         gen.simulate();
+        chrono::time_point end_time{chrono::steady_clock::now()};
+        chrono::duration<double> elapsed_time_seconds{end_time - start_time};
+        chrono::duration<double, milli> elapsed_time_milli{end_time - start_time};
+        cout << "Elapsed time: " << elapsed_time_seconds.count() << " seconds, ";
         return 0;
     }
 }
