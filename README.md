@@ -911,7 +911,7 @@ This `if else` statement checks if `writeinitfile` is `true` or `false`. If `tru
         j = j + 1;
     }
 ```
-Here the actual simulation is ran. Outside the loop the main thing to note is the output file name will be whatever to input file name/initial data file name was + .csv at the end. So for instance, "data.csv" will be output as "dataNbody.csv".
+Here the actual simulation is ran. Outside the loop the main thing to note is the output file name will be whatever to input file name/initial data file name was + .csv at the end. So for instance, "data.csv" will be output as "dataNbody.csv". The actual output itself is non trivial however - a directory with the name `filename` is created, and the data is output as "dataNbody.csv.ccount" where `ccount` is an integer that tracks the index of the output data. For instance the 56th output with initial data file name data.csv would be written as "dataNbody.csv.55" ("dataNbody.csv.0" is the first).
 
 Within the loop, the primary functions that are run are `updateallacceleration` and `update` (both to be explained further below), which updates the positions, velocities and acclerations of all bodies at the current timestep. The `if(j == 100)` part is written in so that only every 100th iteration is output into a data file - this was done to minimize the amount of space taken in the computer and helps with the visualization, but the user can remove the `if` statement if they wish to output data at every single timestep, or change the value. Below the loop, the bounds are recalculated, and `datatree` is deleted and then remade. `datatree` is remade at every timestep to maximize the accuracy of the simulation, given that moving bodies would drastically alter the structure of a tree over time.
 
@@ -1219,7 +1219,66 @@ int main(int argc, char* argv[])
     }
 }
 ```
+The main function has many checks in place to make sure the command line inputs are correct. Error messages will be returned if there are insufficient/too many inputs, incorrect inputs (letters when in places where numbers are asked for, or negative numbers), or if a file is not found. There are two sets of possible command line inputs
+
+## 5.1 - An initial condition file is available
 ```console
-sd
+C:\Filepath> ./bodygen.exe filename.csv positive_number positive_integer
 ```
+A possible input would be
+```console
+C:\Filepath> ./bodygen.exe gg.csv 10 4600
+```
+which would take the initial condition data gg.csv, and run 4600 iterations with 10 second timesteps, and output "ggNbody.csv" to the folder "gg".
+
+## 5.2 - Generating new data
+```
+C:\Filepath> ./bodygen.exe positive_integer filename.csv positive_number positive_integer
+```
+A possible input would be
+```console
+C:\Filepath> ./bodygen.exe 500 balls.csv 1.6834 3555
+```
+which would create an initial condition data file "balls.csv" with 500 bodies, simulate with 1.6834 second timesteps over 3555 iterations, and output to "ballsNbody.csv" to the folder "balls".
+
+# 6 - Sample Outputs
+Included in the git repository are some sample data I have generated. "testdata.csv" and "gg.csv" are initial condition data files, and in the "testdata" and "gg" folders we find the corresponding simulated data sets.
+
+The simulation data is written out in a way such that it can be read by Paraview. I've created five animations (which unfortunately I cannot upload to github, so instead I will include a google drive link below), all of which are 1000 bodies with a central mass.
+
+https://drive.google.com/drive/folders/1KSQek9YFoXO6Z9lsXeq_I0boNn8Yz7W_?usp=sharing
+
+To briefly describe each simulation
+
+- orbits.avi is simply a collection of asteroids orbiting some central mass with 100 second timesteps
+
+- orbitsdetailed.avi is a more accurate simulation of orbits.avi with 10 second timesteps.
+
+- testanim.avi is a simulation set where I messed up my initial conditions such that the bodies ended up in a half ring around the central mass, but it looked cool so I kept it
+
+- kepler.avi is a demonstration of kepler shear - how some "line" of mass gets distorted into a spiral 
+
+- disruption.avi contains the same planetary ring/disk system from orbitsdetailed.avi but now I've included a massive body that interferes and disrupts the system by flying right into the disk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
